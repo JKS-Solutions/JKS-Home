@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 
 
 #application
-from application import views
+from src import views
 
 # create tables
 try: 
