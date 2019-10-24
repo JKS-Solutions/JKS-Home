@@ -1,10 +1,17 @@
-from flask import Flask
-app = Flask(__name__)
 import os
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+app = Flask(__name__)
+
+# views
+from src import views
+from src.developers import views
+
+
+# models
+
 
 # database
-from flask_sqlalchemy import SQLAlchemy
-
 if os.environ.get("HEROKU"):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 else:
@@ -13,15 +20,8 @@ else:
 
 db = SQLAlchemy(app)
 
-
-#views
-from src import views
-from src.developers import views
-
-#models
-
 # create tables
-try: 
+try:
     db.create_all()
 except:
     pass
