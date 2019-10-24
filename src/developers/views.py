@@ -1,7 +1,7 @@
-from flask import render_template, jsonify
+from flask import render_template
 from src import app
 
-import urllib, json
+import json
 import requests
 
 dvs = []
