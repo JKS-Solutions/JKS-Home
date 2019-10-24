@@ -14,8 +14,11 @@ else:
 db = SQLAlchemy(app)
 
 
-#application
+#views
 from src import views
+from src.developers import views
+
+#models
 
 # create tables
 try: 
